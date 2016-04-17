@@ -2,6 +2,8 @@ package cn.com.cowboy.nosql_mvc.business.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,7 @@ public class UserBusImpl implements UserBus
 {
 	private static String USER_COLLECTION = "user";
 
+	@Resource
 	private MongoTemplate mongoTemplate;
 
 	public Users save(Users users)

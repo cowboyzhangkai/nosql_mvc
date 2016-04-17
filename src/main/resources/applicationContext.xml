@@ -15,14 +15,14 @@
 	<!-- <context:annotation-config /> -->
 
 	<!-- 扫描注解Bean -->
-	<context:component-scan base-package="cn.com.springmvc.mongodb"
+	<context:component-scan base-package="cn.com.cowboy.nosql_mvc"
 		use-default-filters="true">
 		<context:include-filter type="annotation"
 			expression="org.aspectj.lang.annotation.Aspect" />
 		<context:exclude-filter type="regex"
 			expression="\.commons\..*" />
 		<context:exclude-filter type="regex"
-			expression="cn\.com\.springmvc\.mongodb\.web..*" />
+			expression="cn\.com\.cowboy\.nosql_mvc\.web..*" />
 	</context:component-scan>
 
 

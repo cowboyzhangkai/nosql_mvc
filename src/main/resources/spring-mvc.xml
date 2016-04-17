@@ -36,7 +36,7 @@
 
 	<!-- Scans within the base package of the application for @Controller to 
 		configure as beans -->
-	<context:component-scan base-package="cn.com.springmvc.mongodb.web" />
+	<context:component-scan base-package="cn.com.cowboy.nosql_mvc.web" />
 
 	<!-- static resources -->
 	<mvc:resources mapping="/static/**" location="/static/" />

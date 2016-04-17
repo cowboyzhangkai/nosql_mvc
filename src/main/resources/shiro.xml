@@ -24,6 +24,7 @@
 				/sys/loginFaild*=anon
 				/index.jsp*=anon
 				/index.html*=anon
+				/user/list*=anon
 
 				/static/**=anon
 				/login*=authc
@@ -36,7 +37,7 @@
 
 	<!--可以替换默认的authc验证过滤器，实现根据不同用户跳转到不同页面 -->
 	<bean id="formAuthenticationFilter"
-		class="cn.com.springmvc.mongodb.web.filter.CustomFormAuthenticationFilter">
+		class="cn.com.cowboy.nosql_mvc.web.filter.CustomFormAuthenticationFilter">
 		<property name="defaultSuccessUrl" value="${auth.default.success.url}" />
 		<!--表单上的用户名/密码 下次自动登录的参数名 -->
 		<property name="usernameParam" value="username" />
@@ -54,7 +55,7 @@
 	</bean>
 
 	<!-- 項目自定义的Realm -->
-	<bean id="userRealm" class="cn.com.springmvc.mongodb.web.filter.UserRealm">
+	<bean id="userRealm" class="cn.com.cowboy.nosql_mvc.web.filter.UserRealm">
 		<property name="authenticationCachingEnabled" value="false" />
 		<property name="authorizationCachingEnabled" value="false" />
 	</bean>

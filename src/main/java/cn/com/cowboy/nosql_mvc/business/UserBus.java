@@ -9,7 +9,7 @@ import cn.com.cowboy.nosql_mvc.entity.Users;
  * @date ：2016年4月7日 下午9:26:09
  * @version 1.0
  */
-public interface UserBus extends BaseService<Users, String>
+public interface UserBus
 {
 	public Users save(Users users);
 

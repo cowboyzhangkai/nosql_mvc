@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<description>Spring MVC servlet配置</description>
+
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/views/" />
+		<property name="suffix" value=".html" />
+		<property name="order" value="2" />
+	</bean>
+
+	<!-- Scans within the base package of the application for @Controller to 
+		configure as beans -->
+	<context:component-scan base-package="cn.com.springmvc.mongodb.web" />
+
+	<!-- static resources -->
+	<mvc:resources mapping="/static/**" location="/static/" />
+	<mvc:resources mapping="/views/**" location="/views/" />
+	<mvc:resources mapping="/login.html" location="/login.html" />
+	<mvc:resources mapping="/index.jsp" location="/index.jsp" />
+
+	<!-- 此处主要是为了主页通过域名直接访问，location值随便填写什么，但不能为空 -->
+	<mvc:resources mapping="/*" location="/welcome.html" />
+	<mvc:resources mapping="/**" location="/welcome.html" />
+	<!-- 不确定还需启用标注事务 -->
+	<tx:annotation-driven />
+
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
+</beans>

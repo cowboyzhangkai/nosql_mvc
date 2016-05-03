@@ -14,4 +14,6 @@ public interface UserBus
 	public Users save(Users users);
 
 	public List<Users> findAll();
+
+	public void update();
 }

@@ -1,37 +1,35 @@
 package cn.com.cowboy.nosql_mvc.entity;
 
 import java.io.Serializable;
-
-import org.springframework.data.mongodb.core.mapping.Document;
+import java.util.Date;
 
 /**
  * @author cowboy
  * @date ：2016年4月7日 下午9:19:55
  * @version 1.0
  */
-@Document(collection = "users")
 public class Users implements Serializable
 {
 	private static final long serialVersionUID = -3737624370081542733L;
-	private String id;
+
 	private String name;
 	private String password;
+
 	private String cnName;
+
+	private Date createTime;
+
+	private Department dept;
+
+	public Users()
+	{
+
+	}
 
 	public Users(String name, String password)
 	{
 		this.name = name;
 		this.password = password;
-	}
-
-	public String getId()
-	{
-		return id;
-	}
-
-	public void setId(String id)
-	{
-		this.id = id;
 	}
 
 	public String getName()
@@ -63,4 +61,25 @@ public class Users implements Serializable
 	{
 		this.cnName = cnName;
 	}
+
+	public Department getDept()
+	{
+		return dept;
+	}
+
+	public void setDept(Department dept)
+	{
+		this.dept = dept;
+	}
+
+	public Date getCreateTime()
+	{
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime)
+	{
+		this.createTime = createTime;
+	}
+
 }

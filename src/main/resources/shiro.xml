@@ -25,6 +25,8 @@
 				/index.jsp*=anon
 				/index.html*=anon
 				/user/list*=anon
+				/user/create*=anon
+				/user/update*=anon
 
 				/static/**=anon
 				/login*=authc

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="./static/js/jquery/jquery.js"></script>
+
+<script type="text/javascript">
+	function submit() {
+		var name = "张三";
+		var password = "222222";
+		$.ajax({
+			type : "GET",
+			url : "./user/create",
+			data : {name:name,password:password},
+			dataType : "json",
+			success : function(data) {
+			},
+			error : function(res) {
+			}
+		});
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="提交" onclick="submit()">
+</body>
+</html>

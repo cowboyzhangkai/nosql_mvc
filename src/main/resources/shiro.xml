@@ -27,6 +27,7 @@
 				/user/list*=anon
 				/user/create*=anon
 				/user/update*=anon
+				/user/autoCreate*=anon
 
 				/static/**=anon
 				/login*=authc
